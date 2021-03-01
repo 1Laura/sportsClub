@@ -23,9 +23,7 @@ $app = new Application(dirname(__DIR__), $config);
 
 $app->router->get('/', [SiteController::class, 'home']);
 
-$app->router->get('/about', [SiteController::class, 'about']);
-
-$app->router->get('/contact', [SiteController::class, 'contact']);
+$app->router->get('/feedback', [SiteController::class, 'feedback']);
 
 
 $app->run();

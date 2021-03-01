@@ -18,27 +18,15 @@ class SiteController extends Controller
         return $this->render('home', $params);
     }
 
-    public function about()
+    public function feedback()
     {
         $params = [
             'version' => '1.0.0',
+            'title' => 'feedback'
 
         ];
-        return $this->render('about', $params);
+        return $this->render('feedback', $params);
     }
 
-    public function contact()
-    {
-        // "This should be a form";
-        //lets render view
-        return $this->render('contact');
-    }
-
-    public function handleContact(Request $request)
-    {
-        $body = $request->getBody();
-        return "Handling form site controller handleContact method";
-
-    }
 
 }
