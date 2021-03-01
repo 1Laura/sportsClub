@@ -23,7 +23,7 @@
 
                 <div class="row mt-3">
                     <div class="col">
-                        <input type="submit" class="btn btn-secondary w-100" value="login">
+                        <input type="submit" class="btn btn-secondary w-100" value="Login">
                     </div>
                     <div class="col">
                         <a href="/register" class="btn btn-light w-100">No account?

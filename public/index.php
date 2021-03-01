@@ -19,7 +19,7 @@ $config = [
 
 $app = new Application(dirname(__DIR__), $config);
 
-$app->router->get('/', [SiteController::class, 'home']);
+$app->router->get('/', [SiteController::class, 'index']);
 
 $app->router->get('/feedback', [SiteController::class, 'feedback']);
 

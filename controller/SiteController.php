@@ -9,13 +9,13 @@ use app\core\Request;
 
 class SiteController extends Controller
 {
-    public function home()
+    public function index()
     {
         $params = [
             'name' => 'Sports club',
             'subtitle' => "Sports club home"
         ];
-        return $this->render('home', $params);
+        return $this->render('index', $params);
     }
 
     public function feedback()
