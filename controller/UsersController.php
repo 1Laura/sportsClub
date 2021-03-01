@@ -98,11 +98,73 @@ class UsersController extends Controller
         }
     }
 
+
+    public function login(Request $request)
+    {
+        $this->setLayout('main');
+
+        if ($request->isGet()) {
+            $data =
+                [
+                    'email' => '',
+                    'password' => '',
+                    'errors' => [
+                        'emailErr' => '',
+                        'passwordErr' => '',
+                    ]
+                ];
+            return $this->render('login', $data);
+        }
+
+        if ($request->isPost()) {
+            $data = $request->getBody();
+            //validate email
+            $data['errors']['emailErr'] = $this->vld->validateLoginEmail($data['email'], $this->userModel);
+
+            //validate password
+            $data['errors']['passwordErr'] = $this->vld->validateEmpty($data['password'], 'Please enter your password');
+
+            if ($this->vld->ifEmptyErrorsArray($data['errors'])) {
+                //check if we have errors
+                //no errors
+                //email was found and password was entered
+                $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+
+
+                if ($loggedInUser) {
+                    //create session
+                    //password match
+                    $this->createUserSession($loggedInUser);
+                    $request->redirect('/');
+//                    die('email and pass match start session immediately');
+                    //id, name ir email issisaugoti i sessija kai prisiloginam
+                    //kai turim tuos duomeniss, galesim valdyti visa flowa
+                } else {
+                    $data['errors']['passwordErr'] = 'Wrong password or email';
+                    //load view with errors
+                    return $this->render('login', $data);
+                }
+            }
+            return $this->render('login', $data);
+        }
+    }
+
     public function createUserSession($userRow)
     {
-        $_SESSION['userId'] = $userRow->id;
+        $_SESSION['userId'] = $userRow->userId;
         $_SESSION['userName'] = $userRow->name;
         $_SESSION['userEmail'] = $userRow->email;
+    }
+
+    //LOGOUT
+    public function logout(Request $request)
+    {
+        unset($_SESSION['userId']);
+        unset($_SESSION['userName']);
+        unset($_SESSION['userEmail']);
+
+        session_destroy();
+        $request->redirect('/');
     }
 
 }

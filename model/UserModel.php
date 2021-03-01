@@ -18,7 +18,7 @@ class UserModel
     public function register($data): bool
     {
         //prepare statement
-        $this->db->query("INSERT INTO users (`name`,`surname`, `email`,`phoneNumber`,`address,` `password`) VALUES (:name, :surname, :email, :phoneNumber, :address, :password)");
+        $this->db->query("INSERT INTO `users` (`name`, `surname`, `email`, `password`, `phoneNumber`, `address`) VALUES (:name, :surname, :email, :password, :phoneNumber, :address) ");
 
         //add values//priskirti reiksmes
         $this->db->bind(':name', $data['name']);
@@ -56,6 +56,30 @@ class UserModel
             return false;
         }
 
+    }
+    public function login($email, $notHashedPass)
+    {
+        //get the row with given email
+        $this->db->query("SELECT * FROM users WHERE `email`= :email");
+
+        $this->db->bind(':email', $email);
+
+        $row = $this->db->singleRow();
+
+        if ($row) {
+            //isssisaugoti slaptazodis is tos eilute kuria gavom
+            //eilute, kurioj stulpelis password - PDO bajeris :)
+            $hashedPassword = $row->password;
+        } else {
+            return false;
+        }
+
+        // check password
+        if (password_verify($notHashedPass, $hashedPassword)) {
+            return $row;
+        } else {
+            return false;
+        }
     }
 
 

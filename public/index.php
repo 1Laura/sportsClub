@@ -29,5 +29,6 @@ $app->router->post('/register', [UsersController::class, 'register']);
 $app->router->get('/login', [UsersController::class, 'login']);
 $app->router->post('/login', [UsersController::class, 'login']);
 
+$app->router->get('/logout', [UsersController::class, 'logout']);
 
 $app->run();

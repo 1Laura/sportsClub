@@ -62,7 +62,7 @@ class Validation
         if (!preg_match("/^[a-z ,.'-]+$/i", $field)) {
             return "Surname must only contain Name characters";
         }
-        if (strlen($field) <= $max) {
+        if (strlen($field) > $max) {
             return "Surname must be less $max characters length";
         }
 
@@ -99,11 +99,10 @@ class Validation
 
     function validateAddress($address, $max)
     {
-        if (strlen($address) <= $max) {
+        if (strlen($address) > $max) {
             return "Address must be less $max characters length";
         }
     }
-
 
     public function validatePassword($passwordField, $min, $max)
     {
@@ -149,5 +148,22 @@ class Validation
         return '';
     }
 
+    //LOGIN VALIDATE
+    public function validateLoginEmail($field, &$userModel)
+    {
+        //validate empty
+        if (empty($field)) return "Please enter Your Email";
+
+        //check email format
+        if (filter_var($field, FILTER_VALIDATE_EMAIL) === false) {
+            return 'Please check Your Email';
+        }
+
+        // if email already exists
+        if (!$userModel->findUserByEmail($field)) {
+            return 'Email not found';
+        }
+        return '';
+    }
 
 }
