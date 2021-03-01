@@ -1,0 +1,19 @@
+{
+  "name": "lenovo/sports-club",
+  "description": "Sports club project. Almost laravel",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Laura Baltrukonė",
+      "email": "baltrukone@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "app\\": "./"
+    }
+  },
+  "require": {
+    "vlucas/phpdotenv": "^5.3"
+  }
+}
