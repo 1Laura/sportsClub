@@ -1,6 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 
+use app\controller\SiteController;
 use app\core\Application;
 
 
@@ -17,4 +18,14 @@ $config = [
 ];
 
 
-$app = new Application(dirname(__DIR__));
+$app = new Application(dirname(__DIR__), $config);
+
+
+$app->router->get('/', [SiteController::class, 'home']);
+
+$app->router->get('/about', [SiteController::class, 'about']);
+
+$app->router->get('/contact', [SiteController::class, 'contact']);
+
+
+$app->run();
