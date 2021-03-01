@@ -17,36 +17,35 @@
     <!--bootstrap-->
     <scrip src="./js/app.js" defer></scrip>
     <link rel="stylesheet" href="./css/style.css">
-    <title>SPORTS CLUB</title>
+    <title>Sports club D R E A M</title>
 </head>
 
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Almost <strong>LARA</strong></a>
+        <a class="navbar-brand" href="#">Sports club <strong>DREAM</strong></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+        <div class="collapse navbar-collapse justify-content-between p-2" id="navbarNavAltMarkup">
+            <div class="navbar-nav ">
                 <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/about">About</a>
-                <a class="nav-link" href="/contact">Contact</a>
-                <a class="nav-link" href="/posts">Posts</a>
+                <a class="nav-link" href="/feedback">Feedback</a>
             </div>
 
             <!--when not logged in-->
             <?php if (!\app\core\Session::isUserLoggedIn()): ?>
-                <div class="navbar-nav float-end">
+                <div class="navbar-nav ">
                     <a class="nav-link" href="/login">Login</a>
                     <a class="nav-link" href="/register">Register</a>
                 </div>
             <?php else: ?>
                 <!--when looged in-->
                 <div class="navbar-nav float-end">
-                    <a class="nav-link" disabled href="#"><?php echo $_SESSION['userEmail']; ?></a>
+                    <a class="nav-link" disabled
+                       href="#"><?php echo $_SESSION['userEmail'] . " => " . $_SESSION['userEmail']; ?></a>
                     <a class="nav-link" href="/logout">Logout</a>
                 </div>
             <?php endif; ?>
