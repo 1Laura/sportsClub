@@ -159,7 +159,6 @@ class Router
 //        var_dump($params);
 //        exit();
 
-
         //start buffering
         ob_start();
         include_once Application::$ROOT_DIR . "/view/$view.php";

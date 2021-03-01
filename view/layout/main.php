@@ -45,14 +45,14 @@
                 <!--when looged in-->
                 <div class="navbar-nav float-end">
                     <a class="nav-link" disabled
-                       href="#"><?php echo $_SESSION['userEmail'] . " => " . $_SESSION['userEmail']; ?></a>
+                       href="#"><?php echo "Welcome -  " . $_SESSION['userName'] . " :  " . $_SESSION['userEmail']; ?></a>
                     <a class="nav-link" href="/logout">Logout</a>
                 </div>
             <?php endif; ?>
         </div>
     </div>
 </nav>
-
+<?php var_dump($_SESSION); ?>
 
 <div class="container">
     {{content}}

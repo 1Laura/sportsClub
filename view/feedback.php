@@ -1,2 +1,5 @@
-<h1>This is feedback page</h1>
-<h3>Version <?php echo $version ?></h3>
+<h1>feedback about sports club: </h1>
+<div>feedback block</div>
+<div>
+
+</div>
