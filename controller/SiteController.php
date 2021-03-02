@@ -18,15 +18,15 @@ class SiteController extends Controller
         return $this->render('index', $params);
     }
 
-    public function feedback()
-    {
-        $params = [
-            'version' => '1.0.0',
-            'title' => 'feedback'
-
-        ];
-        return $this->render('feedback', $params);
-    }
+//    public function feedback()
+//    {
+//        $params = [
+//            'version' => '1.0.0',
+//            'title' => 'feedback'
+//
+//        ];
+//        return $this->render('feedback', $params);
+//    }
 
 
 }

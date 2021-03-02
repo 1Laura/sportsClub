@@ -1,11 +1,11 @@
 <?php //use app\core\FormFieldHtml; ?>
-<div class="row">
+<div class="row m-5">
     <div class="col-lg-6 mx-auto">
         <div class="card card-body bg-light mt-5">
             <?php //flash('registerFail'); ?>
             <h2>Create an account</h2>
-            <?php var_dump($params); ?>
-            <?php var_dump($_POST); ?>
+            <!--            --><?php //var_dump($params); ?>
+            <!--            --><?php //var_dump($_POST); ?>
             <p>Please fill in the form to register with us</p>
             <form action="" method="post" id="registration-form">
                 <!--                --><?php //echo new FormFieldHtml('name', 'name', '', 'Name', 'text', 'required', $params); ?>
