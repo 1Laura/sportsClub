@@ -12,6 +12,7 @@ class API extends Controller
 {
     public FeedbackModel $feedbackModel;
     public Validation $vld;
+    private Request $request;
 
     public function __construct()
     {
@@ -21,11 +22,7 @@ class API extends Controller
 
     public function comments()
     {
-//        if (!\app\core\Session::isUserLoggedIn()) {
-//            header('Content-Type: application/json');
-//            echo json_encode(['error' => 'user is not logged in ']);
-//            die();
-//        }
+
         $comments = $this->feedbackModel->getAllFeedback();
         $data = [
             'comments' => $comments,
@@ -35,16 +32,17 @@ class API extends Controller
     }
 
 
-    public function addComment()
+    public function addComment(Request $request)
     {
         $result = [
             'errors' => [],
         ];
-        if (isset($_SESSION['userId'])) {
-            $result['errors'] = 'no id given';
-        }
+//        if (isset($_SESSION['userId'])) {
+//            $result['errors'] = 'no userID given';
+////            $this->request->redirect('/');
+//        }
 
-//        if ($request->isPost()) {
+        if ($request->isPost()) {
             $data = [
                 'commentBody' => trim($_POST['commentBody']),
                 'errors' => [
@@ -57,8 +55,9 @@ class API extends Controller
                 // no errors
                 // execute add post from model and get result
                 $commentData = [
-                    'author' => $_SESSION['userName'],
+                    'userName' => $_SESSION['userName'],
                     'commentBody' => $data['commentBody'],
+                    'userId' => $_SESSION['userId'],
                 ];
                 if ($this->feedbackModel->addFeedback($commentData)) {
                     $result['success'] = "Comment added";
@@ -70,7 +69,7 @@ class API extends Controller
                 $result['errors'] = $data['errors'];
             }
 //            return $this->render('/feedback', $data);
-//        }
+        }
         header('Content-Type: application/json');
         echo json_encode($result);
         die();

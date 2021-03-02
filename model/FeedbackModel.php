@@ -31,7 +31,7 @@ class FeedbackModel
         //prepare statement
         $this->db->query("INSERT INTO `feedback` (`userId`, `text`) VALUES (:userId, :text)");
         //add values//priskirti reiksmes
-        $this->db->bind(':text', $data['text']);
+        $this->db->bind(':text', $data['commentBody']);
         $this->db->bind(':userId', $data['userId']);
         //make query
         if ($this->db->execute()) {

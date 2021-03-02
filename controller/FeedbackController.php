@@ -41,7 +41,7 @@ class FeedbackController extends Controller
             //create data
             $data = [
                 'allFeedback' => $allFeedback,
-                'userId' => $_SESSION['userId'],
+//                'userId' => $_SESSION['userId'],
                 'text' => '',
                 'errors' => [
                     'textErr' => '',
@@ -54,6 +54,10 @@ class FeedbackController extends Controller
             $data = $request->getBody();
             $data['userId'] = $_SESSION['userId'];
             $data['errors']['textErr'] = $this->vld->validateFeedback($data['text'], 500);
+
+            if (isset($data['userId'])) {
+                $data['commentsOn'] = true;
+            }
             //check if there are no errors
             if (empty($data['errors']['textErr']) && isset($data['userId'])) {
                 if ($this->feedbackModel->addFeedback($data)) {

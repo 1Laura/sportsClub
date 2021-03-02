@@ -34,7 +34,7 @@ $app->router->get('/feedback', [FeedbackController::class, 'index']);
 $app->router->post('/feedback', [FeedbackController::class, 'index']);
 
 $app->router->get('/comments', [API::class, 'comments']);
-$app->router->get('/addComment', [API::class, 'addComment']);
+//$app->router->get('/addComment', [API::class, 'addComment']);
 $app->router->post('/addComment', [API::class, 'addComment']);
 
 
