@@ -49,14 +49,12 @@ class Validation
         if (!preg_match("/^[a-z ,.'-]+$/i", $field)) {
             return "Name must only contain Name characters";
         }
-        //falsy
         return '';
     }
 
     public function validateSurname($field, $max): string
     {
         if (empty($field)) {
-            // empty field
             return "Please enter your Surname";
         }
         if (!preg_match("/^[a-z ,.'-]+$/i", $field)) {
@@ -65,8 +63,6 @@ class Validation
         if (strlen($field) > $max) {
             return "Surname must be less $max characters length";
         }
-
-        //falsy
         return '';
     }
 
@@ -153,15 +149,29 @@ class Validation
     {
         //validate empty
         if (empty($field)) return "Please enter Your Email";
-
         //check email format
         if (filter_var($field, FILTER_VALIDATE_EMAIL) === false) {
             return 'Please check Your Email';
         }
-
         // if email already exists
         if (!$userModel->findUserByEmail($field)) {
             return 'Email not found';
+        }
+        return '';
+    }
+
+    //FEEDBACK VALIDATE
+    public function validateFeedback($field, $max)
+    {
+        $field = urldecode($field);
+        $field = filter_var($field, FILTER_SANITIZE_STRING);
+        $field = filter_var($field, FILTER_SANITIZE_SPECIAL_CHARS);
+
+        if (empty($field)) {
+            return "Please enter your feedback";
+        }
+        if (strlen($field) > $max) {
+            return "Feedback must be less $max characters length";
         }
         return '';
     }

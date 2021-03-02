@@ -1,6 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 
+use app\controller\API;
 use app\controller\FeedbackController;
 use app\controller\SiteController;
 use app\controller\UsersController;
@@ -30,6 +31,11 @@ $app->router->post('/login', [UsersController::class, 'login']);
 $app->router->get('/logout', [UsersController::class, 'logout']);
 
 $app->router->get('/feedback', [FeedbackController::class, 'index']);
-//$app->router->post('/feedback', [FeedbackController::class, 'index']);
+$app->router->post('/feedback', [FeedbackController::class, 'index']);
+
+$app->router->get('/comments', [API::class, 'comments']);
+$app->router->get('/addComment', [API::class, 'addComment']);
+$app->router->post('/addComment', [API::class, 'addComment']);
+
 
 $app->run();

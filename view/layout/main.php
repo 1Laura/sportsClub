@@ -21,42 +21,48 @@
 </head>
 
 <body>
+<div id="page-container">
+    <div id="content-wrap">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Sports club <strong>DREAM</strong></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between p-2" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ">
+                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/feedback">Feedback</a>
+                    </div>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Sports club <strong>DREAM</strong></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between p-2" id="navbarNavAltMarkup">
-            <div class="navbar-nav ">
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/feedback">Feedback</a>
+                    <!--when not logged in-->
+                    <?php if (!\app\core\Session::isUserLoggedIn()): ?>
+                        <div class="navbar-nav ">
+                            <a class="nav-link" href="/login">Login</a>
+                            <a class="nav-link" href="/register">Register</a>
+                        </div>
+                    <?php else: ?>
+                        <!--when looged in-->
+                        <div class="navbar-nav float-end">
+                            <a class="nav-link" disabled
+                               href="#"><?php echo "Welcome -  " . $_SESSION['userName'] . " :  " . $_SESSION['userEmail']; ?></a>
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
+        </nav>
+        <?php //var_dump($_SESSION); ?>
 
-            <!--when not logged in-->
-            <?php if (!\app\core\Session::isUserLoggedIn()): ?>
-                <div class="navbar-nav ">
-                    <a class="nav-link" href="/login">Login</a>
-                    <a class="nav-link" href="/register">Register</a>
-                </div>
-            <?php else: ?>
-                <!--when looged in-->
-                <div class="navbar-nav float-end">
-                    <a class="nav-link" disabled
-                       href="#"><?php echo "Welcome -  " . $_SESSION['userName'] . " :  " . $_SESSION['userEmail']; ?></a>
-                    <a class="nav-link" href="/logout">Logout</a>
-                </div>
-            <?php endif; ?>
-        </div>
+<!--        <div class="container">-->
+            {{content}}
+<!--        </div>-->
     </div>
-</nav>
-<?php //var_dump($_SESSION); ?>
-
-<div class="container">
-    {{content}}
+    <footer id="footer">
+        <div class="text-center bg-dark text-light p-4"> 2021 @Laura</div>
+    </footer>
 </div>
-
 </body>
 </html>

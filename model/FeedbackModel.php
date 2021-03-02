@@ -26,5 +26,20 @@ class FeedbackModel
         return $result;
     }
 
+    public function addFeedback($data)
+    {
+        //prepare statement
+        $this->db->query("INSERT INTO `feedback` (`userId`, `text`) VALUES (:userId, :text)");
+        //add values//priskirti reiksmes
+        $this->db->bind(':text', $data['text']);
+        $this->db->bind(':userId', $data['userId']);
+        //make query
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }
