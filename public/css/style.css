@@ -1,0 +1,12 @@
+.blockquote-footer {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #8e9398;
+}
+
+cite {
+    font-style: italic;
+    font-weight: 600;
+    color: #6e6e6e;
+}

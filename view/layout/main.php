@@ -52,7 +52,7 @@
         </div>
     </div>
 </nav>
-<?php var_dump($_SESSION); ?>
+<?php //var_dump($_SESSION); ?>
 
 <div class="container">
     {{content}}
