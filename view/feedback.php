@@ -24,16 +24,18 @@
 <?php if (isset($_SESSION['userId'])) : ?>
 
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-12">
+        <div class="row my-3">
+            <div class="col-md-6 mx-auto">
                 <h2>Add feedback</h2>
                 <form id="add-comment-form" action="" method="post">
-                    <div class="form-group">
+                    <div class="form-group my-1">
                     <textarea id="comment-body" name="commentBody" class="form-control "
                               placeholder="Add comment"></textarea>
                         <span class='invalid-feedback'></span>
                     </div>
-                    <button id='submit-btn' type="submit" class='btn btn-success'>Comment</button>
+                    <div class="d-grid gap-2 col-6 mx-auto submitBtn">
+                        <button id='submit-btn' type="submit" class='btn btn-custom'>Add comment</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -41,14 +43,19 @@
     <!--pagal mariu end-->
 
 <?php else: ?>
-    <div class="m-5 text-center">
-        <a href="/register" class="btn btn-secondary">Want to write a feedback?
+
+    <div class="m-5 text-center submitBtn">
+        <a href="/register" class="btn btn-custom px-5 py-2">Want to write a feedback?
             Register</a>
     </div>
 
 
 <?php endif; ?>
-<?php //var_dump($commentData); ?>
+<?php
+//if (isset($currentPage) && $currentPage === 'feedback') {
+//    var_dump($currentPage);
+//}
+//?>
 
 <script>
     const commentsOutputEl = document.getElementById('comments');

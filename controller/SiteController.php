@@ -11,9 +11,13 @@ class SiteController extends Controller
 {
     public function index()
     {
+//        $this->setLayout('homeLayout');
+
         $params = [
             'name' => 'Sports club',
-            'subtitle' => "Sports club home"
+            'subtitle' => "Sports club home",
+            'currentPage' => 'home'
+
         ];
         return $this->render('index', $params);
     }

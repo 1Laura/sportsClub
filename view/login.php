@@ -1,3 +1,5 @@
+<?php //var_dump($currentPage); ?>
+
 <div class="row m-5">
     <div class="col-lg-6 mx-auto">
         <div class="card card-body bg-light mt-5">
@@ -22,8 +24,8 @@
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col">
-                        <input type="submit" class="btn btn-secondary w-100" value="Login">
+                    <div class="col submitBtn">
+                        <input type="submit" class="btn btn-custom w-100" value="Login">
                     </div>
                     <div class="col">
                         <a href="/register" class="btn btn-light w-100">No account?

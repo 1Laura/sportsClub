@@ -24,7 +24,6 @@ class UsersController extends Controller
         if ($request->isGet()) {
 
             $this->setLayout('main');
-            //create cata
             $data = [
                 'name' => '',
                 'surname' => '',
@@ -53,7 +52,7 @@ class UsersController extends Controller
             $this->setLayout('main');
             //request is post and we need to pull user data
             $data = $request->getBody();
-
+            $data['currentPage'] = 'register';
             // Validate name
             $data['errors']['nameErr'] = $this->vld->validateName($data['name'], 40);
             // Validate surname
@@ -104,20 +103,21 @@ class UsersController extends Controller
         $this->setLayout('main');
 
         if ($request->isGet()) {
-            $data =
-                [
-                    'email' => '',
-                    'password' => '',
-                    'errors' => [
-                        'emailErr' => '',
-                        'passwordErr' => '',
-                    ]
-                ];
+            $data = [
+                'currentPage' => 'login',
+                'email' => '',
+                'password' => '',
+                'errors' => [
+                    'emailErr' => '',
+                    'passwordErr' => '',
+                ]
+            ];
             return $this->render('login', $data);
         }
 
         if ($request->isPost()) {
             $data = $request->getBody();
+            $data['currentPage'] = 'login';
             //validate email
             $data['errors']['emailErr'] = $this->vld->validateLoginEmail($data['email'], $this->userModel);
 
