@@ -28,7 +28,7 @@
             <div class="col-md-6 mx-auto">
                 <h2>Add feedback</h2>
                 <form id="add-comment-form" action="" method="post">
-                    <div class="form-group my-1">
+                    <div class="form-group my-2">
                     <textarea id="comment-body" name="commentBody" class="form-control "
                               placeholder="Add comment"></textarea>
                         <span class='invalid-feedback'></span>
