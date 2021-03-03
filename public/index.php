@@ -37,5 +37,6 @@ $app->router->get('/comments', [API::class, 'comments']);
 //$app->router->get('/addComment', [API::class, 'addComment']);
 $app->router->post('/addComment', [API::class, 'addComment']);
 
+$app->router->post('/feedback/delete/{id}', [FeedbackController::class, 'deleteComment']);
 
 $app->run();

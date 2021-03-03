@@ -68,5 +68,16 @@ class FeedbackController extends Controller
 
     }
 
+    public function deleteComment(Request $request, $urlParam = null)
+    {
+        if ($request->isPost()) {
+            $id = $urlParam['value'];
+            if ($this->postModel->deletePost($id)) {
+                $request->redirect('feedback');
+            }
+        }
+
+    }
+
 
 }

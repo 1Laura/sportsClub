@@ -75,11 +75,12 @@
     </div>
 </header>
 
-
-<!--        <div class="container">-->
-{{content}}
-<!--        </div>-->
-<!--    </div>-->
+<main>
+    <!--        <div class="container">-->
+    {{content}}
+    <!--        </div>-->
+    <!--    </div>-->
+</main>
 <footer class="footer mt-auto" id="footer">
     <div class="text-center footerBg text-light p-4"> @ 2021 Laura, all rights reserved</div>
 </footer>

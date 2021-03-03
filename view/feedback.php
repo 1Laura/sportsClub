@@ -7,6 +7,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Review</th>
                 <th scope="col">Date</th>
+                <!--                <th scope="col">Remove</th>-->
             </tr>
             </thead>
             <tbody id="comments">
@@ -15,6 +16,13 @@
                     <td><?php echo $feedback->userName; ?></td>
                     <td><?php echo $feedback->feedbackText; ?></td>
                     <td><?php echo $feedback->feedbackCreated; ?></td>
+                    <!--                    <td>-->
+                    <!--                        <form action="-->
+                    <?php //echo '/feedback/delete/' . $feedback->feedbackId ?><!--" method="post"-->
+                    <!--                              class="float-end">-->
+                    <!--                            <button type="submit" class="btn btn-danger"></i>Remove</button>-->
+                    <!--                        </form>-->
+                    <!--                    </td>-->
                 </tr>
             <?php endforeach; ?>
             </tbody>

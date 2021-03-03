@@ -42,4 +42,20 @@ class FeedbackModel
     }
 
 
+    public function deleteComment($id)
+    {
+        //prepare statement
+        $this->db->query("DELETE FROM `feedback` WHERE `feedback`.`feedbackId` =:feedbackId");
+
+        $this->db->bind(':feedbackId', $id);
+
+        //make query
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }
