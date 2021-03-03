@@ -30,10 +30,8 @@ class FeedbackController extends Controller
 //        $data = [
 //            'allFeedback' => $allFeedback,
 //        ];
-
 //        return $this->render('/feedback', $data);
 //    }
-
 //    public function addFeedback(Request $request)
 //    {
         if ($request->isGet()) {
@@ -72,7 +70,7 @@ class FeedbackController extends Controller
     {
         if ($request->isPost()) {
             $id = $urlParam['value'];
-            if ($this->postModel->deletePost($id)) {
+            if ($this->feedbackModel->deleteComment($id)) {
                 $request->redirect('feedback');
             }
         }

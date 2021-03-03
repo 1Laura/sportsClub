@@ -31,7 +31,7 @@
 </div>
 <?php if (isset($_SESSION['userId'])) : ?>
 
-    <div class="container">
+<!--    <div class="container">-->
         <div class="row my-3">
             <div class="col-md-6 mx-auto">
                 <h2>Add feedback</h2>
@@ -47,8 +47,8 @@
                 </form>
             </div>
         </div>
-    </div>
-    <!--pagal mariu end-->
+<!--    </div>-->
+
 
 <?php else: ?>
 

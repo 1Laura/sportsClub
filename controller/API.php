@@ -37,10 +37,6 @@ class API extends Controller
         $result = [
             'errors' => [],
         ];
-//        if (isset($_SESSION['userId'])) {
-//            $result['errors'] = 'no userID given';
-////            $this->request->redirect('/');
-//        }
 
         if ($request->isPost()) {
             $data = [
