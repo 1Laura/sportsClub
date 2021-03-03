@@ -1,5 +1,5 @@
 * {
-    font-family: 'Architects Daughter', cursive;
+    font-family: 'Inria Serif', serif !important;
 }
 
 .container-fluid {
@@ -9,14 +9,38 @@
 
 /*navbar*/
 .bgDarkHeight {
-    /*background-color: #040202 !important;*/
-    background-color: rgb(2, 31, 2);
+    background-color: rgba(219, 255, 219, 0.3);
     height: 70px;
 }
 
-.navbar-brand {
-    color: rgba(6, 61, 64, 1);
+/*.navbar-brand {*/
+/*    color: rgb(232, 255, 216);*/
+/*}*/
+
+.fontColorSize {
+    font-size: 20px;
+    color: #f5fff5 !important;
 }
+
+.btn-custom {
+    background-color: rgb(20, 56, 20);
+}
+
+.submitBtn .btn {
+    color: #f5fff5 !important;
+}
+
+.btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #0e3c27a3;
+}
+
+/*footer*/
+.footerBg {
+    background-color: rgb(20, 56, 20);
+    color: #f5fff5 !important;
+}
+
 
 /*for footer*/
 /*#page-container {*/
@@ -64,7 +88,7 @@ cite {
 .headerImg {
     background-image: url("/assets/female-football-player-with-ball-close-up.jpg");
     background-color: #cccccc;
-    height: 300px;
+    height: 400px;
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;

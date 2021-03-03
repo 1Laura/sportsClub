@@ -25,6 +25,7 @@ class FeedbackController extends Controller
 
     public function index(Request $request)
     {
+        $this->setLayout('feedbackLayout');
 //        $allFeedback = $this->feedbackModel->getAllFeedback();
 //        $data = [
 //            'allFeedback' => $allFeedback,
@@ -37,7 +38,7 @@ class FeedbackController extends Controller
 //    {
         if ($request->isGet()) {
             $allFeedback = $this->feedbackModel->getAllFeedback();
-                        $data = [
+            $data = [
                 'allFeedback' => $allFeedback,
                 'currentPage' => 'feedback',
                 'text' => '',

@@ -71,8 +71,8 @@
 
 
                 <div class="row mt-3">
-                    <div class="col">
-                        <input type="submit" class="btn btn-secondary w-100" value="Register">
+                    <div class="col submitBtn">
+                        <input type="submit" class="btn btn-custom w-100" value="Register">
                     </div>
                     <div class="col">
                         <a href="/login" class="btn btn-light w-100">Have an
