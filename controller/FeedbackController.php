@@ -37,11 +37,9 @@ class FeedbackController extends Controller
 //    {
         if ($request->isGet()) {
             $allFeedback = $this->feedbackModel->getAllFeedback();
-
-            //create data
-            $data = [
+                        $data = [
                 'allFeedback' => $allFeedback,
-//                'userId' => $_SESSION['userId'],
+                'currentPage' => 'feedback',
                 'text' => '',
                 'errors' => [
                     'textErr' => '',
@@ -53,12 +51,8 @@ class FeedbackController extends Controller
         if ($request->isPost()) {
             $data = $request->getBody();
             $data['userId'] = $_SESSION['userId'];
+            $data['currentPage'] = 'feedback';
             $data['errors']['textErr'] = $this->vld->validateFeedback($data['text'], 500);
-
-            if (isset($data['userId'])) {
-                $data['commentsOn'] = true;
-            }
-            //check if there are no errors
             if (empty($data['errors']['textErr']) && isset($data['userId'])) {
                 if ($this->feedbackModel->addFeedback($data)) {
                     $request->redirect('feedback');

@@ -1,26 +1,48 @@
+* {
+    font-family: 'Architects Daughter', cursive;
+}
 
 .container-fluid {
     padding-right: 0;
     padding-left: 0;
 }
 
-/*for footer*/
-#page-container {
-    position: relative;
-    min-height: 100vh;
+/*navbar*/
+.bgDarkHeight {
+    /*background-color: #040202 !important;*/
+    background-color: rgb(2, 31, 2);
+    height: 70px;
 }
 
-#content-wrap {
-    padding-bottom: 2.5rem; /* Footer height */
+.navbar-brand {
+    color: rgba(6, 61, 64, 1);
+}
+
+/*for footer*/
+/*#page-container {*/
+/*    position: relative;*/
+/*    min-height: 100vh;*/
+/*}*/
+
+/*#content-wrap {*/
+/*    padding-bottom: 2.5rem; !* Footer height *!*/
+/*}*/
+
+/*#footer {*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*    width: 100%;*/
+/*    height: 2.5rem; !* Footer height *!*/
+/*}*/
+
+
+main > .container {
+    padding-top: 70px;
 }
 
 #footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem; /* Footer height */
+    line-height: 0.8;
 }
-
 
 /**/
 
@@ -36,4 +58,27 @@ cite {
     font-style: italic;
     font-weight: 600;
     color: #6e6e6e;
+}
+
+/*header*/
+.headerImg {
+    background-image: url("/assets/female-football-player-with-ball-close-up.jpg");
+    background-color: #cccccc;
+    height: 300px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (max-width: 550px) {
+    .headerImg {
+        height: 150px;;
+    }
+}
+
+/*index home page*/
+.fixWidthHeight {
+    max-width: 800px;
+    max-height: 400px;
+    padding: 20px 0;
 }

@@ -1,4 +1,6 @@
 <?php //use app\core\FormFieldHtml; ?>
+<?php //var_dump($currentPage); ?>
+
 <div class="row m-5">
     <div class="col-lg-6 mx-auto">
         <div class="card card-body bg-light mt-5">

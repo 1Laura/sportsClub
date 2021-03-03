@@ -48,7 +48,11 @@
 
 
 <?php endif; ?>
-<?php //var_dump($commentData); ?>
+<?php
+//if (isset($currentPage) && $currentPage === 'feedback') {
+//    var_dump($currentPage);
+//}
+//?>
 
 <script>
     const commentsOutputEl = document.getElementById('comments');

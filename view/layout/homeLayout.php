@@ -15,8 +15,6 @@
             integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
             crossorigin="anonymous"></script>
     <!--bootstrap-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
     <scrip src="./js/app.js" defer></scrip>
     <link rel="stylesheet" href="./css/style.css">
     <title>Sports club D R E A M</title>
